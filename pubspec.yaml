@@ -47,6 +47,7 @@ dependencies:
   # mcm React hooks
   flutter_hooks: ^0.20.5
   cached_network_image: ^3.4.1
+  either_dart: ^1.0.0
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,6 @@
-import 'package:clean_architecture/core/resources/data_state.dart';
 import 'package:clean_architecture/features/daily_news/domain/entities/article_entity.dart';
+import 'package:either_dart/either.dart';
 
 abstract class ArticleRepository {
-  Future<DataState<List<ArticleEntity>>> getNewsArticle();
+  Future<Either<Exception, List<ArticleEntity>>> getNewsArticle();
 }
