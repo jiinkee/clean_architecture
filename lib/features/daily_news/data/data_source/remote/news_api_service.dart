@@ -3,7 +3,9 @@ import 'package:clean_architecture/core/network/api.dart';
 import 'package:dio/dio.dart';
 
 class NewsApiService {
-  final Api _api = Api();
+  final Api _api;
+
+  const NewsApiService(this._api);
 
   Future<Response> getNewsArticle({
     String? country, String? category,
