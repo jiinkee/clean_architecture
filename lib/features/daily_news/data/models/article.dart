@@ -1,5 +1,7 @@
 import 'package:clean_architecture/features/daily_news/domain/entities/article_entity.dart';
+import 'package:floor/floor.dart';
 
+@Entity(tableName: 'articles', primaryKeys: ['id'])
 // why need to extend ArticleEntity here?
 // because in data layer repository class it will need to implement the body for functions defined in domain layer repository interfaces
 // the domain layer repo interface using ArticleEntity
@@ -26,6 +28,19 @@ class ArticleModel extends ArticleEntity {
       urlToImage: map['urlToImage']?.toString() ?? '',
       publishedAt: map['publishedAt']?.toString() ?? '',
       content: map['content']?.toString() ?? '',
+    );
+  }
+
+  factory ArticleModel.fromEntity(ArticleEntity entity) {
+    return ArticleModel(
+      id: entity.id,
+      author: entity.author,
+      title: entity.title,
+      description: entity.description,
+      url: entity.url,
+      urlToImage: entity.urlToImage,
+      publishedAt: entity.publishedAt,
+      content: entity.content,
     );
   }
 
