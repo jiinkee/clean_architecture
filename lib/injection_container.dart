@@ -7,6 +7,7 @@ import 'package:clean_architecture/features/daily_news/domain/usecases/get_artic
 import 'package:clean_architecture/features/daily_news/domain/usecases/get_saved_article.dart';
 import 'package:clean_architecture/features/daily_news/domain/usecases/remove_article.dart';
 import 'package:clean_architecture/features/daily_news/domain/usecases/save_article.dart';
+import 'package:clean_architecture/features/daily_news/presentation/bloc/article/local/local_article_bloc.dart';
 import 'package:clean_architecture/features/daily_news/presentation/bloc/article/remote/remote_article_bloc.dart';
 import 'package:get_it/get_it.dart';
 
@@ -31,5 +32,6 @@ Future<void> initializeDependencies() async {
   // anything related to state management should not be declared as singleton
   // because we need a new instance of bloc everytime the state changes
   sl.registerFactory<RemoteArticleBloc>(() => RemoteArticleBloc(sl()));
+  sl.registerFactory<LocalArticleBloc>(() => LocalArticleBloc(sl(), sl(), sl()));
 
 }
